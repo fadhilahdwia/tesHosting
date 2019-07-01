@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" ng-app="">
+
+<head>
+    <meta charset="utf-8" />
+    <!-- mdbootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <!-- asset -->
+    <link rel="stylesheet" type="text/css" href="assets/css/stylesloginregis.css">
+</head>
+
+<body ng-app="MyApp">
+
+    <div class="login-box">
+        <img src="assets/img/123.png" class="avatar">
+        <h5 class="card-title text-center">Login</h5>
+        <form name="myForm" ng-submit="submit()" class="form-horizontal" novalidate novalidate>
+
+            <div class="form-signin">
+
+                <div class="form-label-group">
+
+                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="myName"
+                        ng-model="myName" required />
+                    <span style="color: red" ng-show="myForm.myName.$touched && myForm.myName.$invalid">Masukan Email
+                        anda</span>
+
+                </div>
+
+                <div class="form-label-group">
+                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="pass"
+                        ng-model="pass" required>
+                    <span style="color: red" ng-show="myForm.pass.$touched && myForm.pass.$invalid">Masukan Password
+                        anda</span>
+
+                </div>
+                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit"
+                    ng-disabled="myForm.$invalid" onclick="window.location.href='index.html'">
+                    LOGIN</button>
+
+                <a class="d-block text-center mt-2 small account1" href="register.html">Register</a>
+                <hr class="my-4">
+
+            </div>
+        </form>
+
+        <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i>
+            Sign up with Google</button>
+        <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i
+                class="fab fa-facebook-f mr-2"></i> Sign up with Facebook</button>
+
+    </div>
+
+    <script>
+        $.backstretch([
+            "assets/img/bg1.jpg",
+            "assets/img/bg2.jpg",
+            "assets/img/bg3.jpg"
+        ], {
+            fade: 750,
+            duration: 4000
+        });
+    </script>
+    <!-- angular -->
+    <script>
+        var app = angular.module("MyApp", []);
+
+        app.controller("User", function ($scope) {
+            $scope.submit = function () {
+                $scope.wasSubmitted = true;
+            };
+        });
+    </script>
+    <!-- angular -->
+    <script type="text/javascript" src="assets/js/angular.min.js">
+    </script>
+    <!-- captha -->
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="assets/js/jquery.backstretch.min.js"></script>
+</body>
+
+</html>
